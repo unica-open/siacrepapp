@@ -1,0 +1,78 @@
+------------------------
+SIAC REPAPP
+------------------------
+
+Funzionalita' rilasciate
+--------------------------
+build 27/11/2019 versione 4.9.0
+ incremento versione per allineamento di tutte le dipendenze su SIAC-6881
+
+build 22/10/2019 versione 4.8.0
+ SIAC-7078
+
+build 07/10/2019 versione 4.7.0
+ modificato jspath
+
+build 28/08/2019 versione 4.6.0
+ SIAC-6952
+ 
+build 26/06/2019 versione 4.5.0
+ SIAC-6913
+
+build 09/05/2019 versione 4.4.0
+ SIAC-6795
+
+build 06/03/2019 versione 4.3.0
+ SIAC-6722
+
+build 13/02/2019 versione  4.2.0
+ SIAC-6257
+
+build 23/01/2019 versione  4.1.0
+ refactoring core
+
+build 25/10/2018 versione  4.0.0
+ incremento versione per modifiche architettura
+
+build 21/06/2018 versione 3.10.0
+ SIAC-6232
+
+build 24/05/2018 versione 3.9.0
+ SIAC-6169
+ SIAC-6151
+
+build 10/05/2018 versione 3.8.0
+ SIAC-6113
+
+build 03/05/2018 versione 3.7.0
+ SIAC-6101
+
+build 12/04/2018 versione 3.6.0
+ SIAC-6078
+
+build 27/03/2018 versione 3.5.0
+ SIAC-6041
+
+build 11/01/2018 versione 3.4.0
+ SIAC-5761
+
+build 28/12/2017 versione 3.3.3
+ Integrazione SIAC-5659 + modifica report (consegnata come patch)
+
+build 14/12/2017 versione 3.3.0
+ Correzione e pulizia JPA
+
+build 23/11/2017 versione 3.2.0-002
+ SIAC-5576
+
+build 09/11/2017 versione 3.2.0
+ SIAC-5451
+
+build 31/08/2017 versione 3.1.0
+ SIAC-5022
+
+build 2014-04-16 (Raffaela): 
+- Aggiunti sotto src/main/reports i report(rpt) e le function sql (sql) generate da birt, con placeholders per la gestione della configurazione
+- Il tar consta di tre unità di installaizone: siacrepapp.ear, siacreprpt.zip (zip con i report), siacrepsql.zip (zip con le function)
+- Aggiunto sotto  src/main/reports/sql il file script.sql, per poter eseguire da shell tutte le function sql (vedi doc linee guida di sviluppo, paragrafo 3.3.2.8.1.4)
+

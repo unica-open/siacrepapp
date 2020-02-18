@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+<plugin> 
+
+   <extension-point id="org.eclipse.birt.report.engine.emitters" name="Emitters that Support Report Rendering" schema="schema/emitters.exsd"/>
+
+
+	<extension name="XBRL Emitter" point="org.eclipse.birt.report.engine.emitters">
+        <emitter class="org.eclipse.birt.report.engine.emitter.xbrl.XbrlEmitter" 
+        	format="xbrl" 
+        	id="org.eclipse.birt.report.engine.emitter.xbrl" 
+        	mimeType="application/xml" 
+        	pagination="no-pagination"/>
+  	</extension>  
+
+
+	<extension name="Debug Emitter" point="org.eclipse.birt.report.engine.emitters">
+        <emitter class="org.eclipse.birt.report.engine.emitter.debug.DebugEmitter" 
+        	format="debug" 
+        	id="org.eclipse.birt.report.engine.emitter.debug" 
+        	mimeType="text/plain" 
+        	pagination="no-pagination"/>
+  	</extension>  
+
+</plugin>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="report" extends="default" namespace="/">
+
+
+		<action name="home"  class="homeAction" >
+			<result name="success" >/jsp/home.jsp</result>
+		</action>
+
+		<action name="homeContentOnly"  class="homeContentOnlyAction" >
+			<result name="success" >/jsp/homeContentOnly.jsp</result>
+		</action>
+
+		<action name="gestioneXbrlFile" class="gestioneXbrlFileAction">
+			<result name="success">/jsp/gestioneXbrlFile.jsp
+			</result>
+			<result name="input">/jsp/gestioneXbrlFile.jsp
+			</result>
+			<result name="gestioneXbrlFile" type="redirectAction">
+				<param name="actionName">gestioneXbrlFile</param>
+				<param name="namespace">/</param>
+				<param name="method">execute</param>
+			</result>
+			<result name="downloadFile" type="chain">
+				<param name="actionName">downloadFile</param>
+				<param name="namespace">/</param>
+				<param name="method">execute</param>
+			</result>
+		</action>
+
+		<action name="downloadFile" class="downloadFileAction">
+			<result name="success" type="stream">
+				<param name="contentType">${contentType}</param>
+				<param name="contentDisposition">attachment;filename="${filename}"</param>
+			</result>
+		</action>
+
+
+		
+	</package>
+</struts>

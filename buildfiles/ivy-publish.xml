@@ -1,0 +1,11 @@
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+<ivy-module version="2.0">
+	<info organisation="csipiemonte" module="siac-repitf" revision="4.12.0" />
+	<publications>
+		<artifact name="siacrepitf-4.12.0" type="jar" />
+	</publications>
+
+</ivy-module>

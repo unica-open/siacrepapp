@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context.xsd
+	    http://www.springframework.org/schema/util
+	    http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- 
+		Permette l'uso delle Annotations per la definizione dei beans di Spring. Il package é impostato
+		fino a 'siacrepapp' in quanto vogliamo non avere conflitti con i varii ITF injettati come jar.
+	 -->
+	<context:component-scan base-package="it.csi.siac.siacrepapp" />
+	<context:component-scan base-package="it.csi.siac.siaccommonapp" />
+	<context:component-scan base-package="it.csi.siac.siaccommonser.business.delegate" />
+	<context:component-scan base-package="it.csi.siac.siaccommonser.business.service.base" />
+	<context:component-scan base-package="it.csi.siac.siaccommonser.integration" />
+	<context:component-scan base-package="it.csi.siac.siacrepser" />
+	
+	
+	
+	
+	<!-- 
+		Aggancia al contesto di Spring le properties che si trovano nei file 
+		di properties della cartella spring sotto il classpath. I valori potranno 
+		essere referenziati sia nei file di configurazione che da codice tramite 
+		l'annotation @Value, con la sintassi ${property.name} 
+	-->
+	<context:property-placeholder location="classpath:spring/*.properties" />
+
+	<!-- Abilita la validazione JSR-303 -->
+	<!-- 
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/> 
+	<bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/> 
+	-->
+	
+	<!-- ****************************** Handler ********************************* -->
+	<!-- Verificare se spostare in un file del tipo spring-handler.xml -->
+
+<!-- 	<bean id="logHandlerBean" class="it.csi.siac.siaccorser.util.log.CoreLogHandler">
+		<property name="verbose" value="false" />
+	</bean>
+ -->	
+
+ 	<bean id="loginHandlerBean"
+		class="${sso.loginHandler}"
+		scope="session">
+	</bean>
+	
+	<!-- <util:properties id="reportJdbcDataSourceConfig">
+    	<prop key="oda_url">${report.datasource.oda.url}</prop>
+    	<prop key="oda_user">${report.datasource.oda.user}</prop>
+    	<prop key="oda_password">${report.datasource.oda.password}</prop>
+	</util:properties>
+	 -->
+	
+	<!-- <context:property-placeholder properties-ref="repProperties"/>
+	
+	<bean id="repProperties" 
+	    class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	  <property name="properties">
+	    <props>
+	      <prop key="birtWorkingFolder">${birt.working.folder}</prop>
+	    </props>
+	  </property>
+	</bean>	 -->
+		
+		
+
+ 	<bean id="sessionHandlerBean"
+		class="it.csi.siac.siaccommonapp.handler.session.SessionHandler" scope="session">
+		<property name="sessionParameterClass" 
+			value="it.csi.siac.siacrepapp.frontend.ui.handler.session.RepSessionParameter" />
+	</bean>
+	
+	
+		
+</beans>

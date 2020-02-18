@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="csi" />
+	<constant name="struts.action.extension" value="do" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+	<!-- FIXME Ho copiato qui 3 tipologie di gestione degli errori che facevamo 
+		su DMAWA, che possiamo anche riusare in SIAC -->
+
+	<package name="default" extends="struts-default" namespace="/">
+
+		<global-results>
+			<result name="utenteNonLoggato" type="redirectAction">
+				<param name="actionName">login</param>
+				<param name="namespace">/login</param>
+				<param name="fromPortal">INTERNET_RUPAR</param>
+				<param name="cod_servizio">DMAWA</param>
+			</result>
+			<result name="utenteNonConfigurato">/jsp/utenteNonConfigurato.jsp</result>
+			<result name="failure">/jsp/failure.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="utenteNonLoggato"
+				exception="it.csi.siac.siacrepapp.frontend.ui.exception.UtenteNonLoggatoException" />
+			<exception-mapping result="utenteNonConfigurato"
+				exception="it.csi.siac.siacrepapp.frontend.ui.exception.UtenteNonConfigurato" />
+			<exception-mapping result="failure"
+				exception="it.csi.siac.siacrepapp.frontend.ui.exception.ApplicationException" />
+
+			<!-- <exception-mapping result="failure" exception="java.lang.Exception" 
+				/> -->
+		</global-exception-mappings>
+
+		<!-- Aggiungere il mapping delle altre azioni possibili -->
+		<!-- ATTENZIONE ALLA NOMENCLATURA!! -->
+
+
+		<action name="azioneRichiesta" class="repAzioneRichiestaAction">
+			<result name="azioneRichiestaResult" type="redirectAction">
+				<param name="actionName">home</param>
+				<param name="namespace">/</param>
+				<param name="method">execute</param>
+			</result>
+		</action>
+
+		<action name="azioneRichiestaContentOnly" class="repAzioneRichiestaAction">
+			<result name="azioneRichiestaResult" type="redirectAction">
+				<param name="actionName">homeContentOnly</param>
+				<param name="namespace">/</param>
+				<param name="method">execute</param>
+			</result>
+		</action>
+
+		<action name="redirectToCruscotto" class="redirectToCruscottoAction">
+			<result name="success" type="redirect">/../siaccruapp/home.do</result>
+		</action>
+		
+
+        <action name="logout" class="logoutAction">
+			<result name="success" type="redirect" >/../siaccruapp/cruLogout.do</result>
+		</action>
+        
+
+
+	</package>
+</struts>
