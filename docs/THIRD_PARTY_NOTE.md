@@ -6,7 +6,7 @@ The original copyright notice and the license, under which CSI-Piemonte received
 are set forth below. You can find the original source code at the link set hereafter.
 Please refer to the accompanying credits file for additional notices.
 
-[Apache 2.0](../lib/third-party-licenses/APACHE%202.0-LICENSE.txt)\
+[Apache 2.0](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/APACHE%202.0-LICENSE.txt) \
 axis,1.4\
 axis-ant,1.4\
 axis-jaxrpc,1.4\
@@ -67,34 +67,34 @@ xml-resolver,1.2\
 bootstrap,2.1.1\
 prettify
 
-[BSD 2-Clause License](../lib/third-party-licenses/BSD%202-CLAUSE-LICENSE.txt)\
+[BSD 2-Clause License](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/BSD%202-CLAUSE-LICENSE.txt) \
 xstream,1.4.2
 
-[BSD 3-Clause License](../lib/third-party-licenses/BSD%203-CLAUSE-LICENSE.txt)\
+[BSD 3-Clause License](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/BSD%203-CLAUSE-LICENSE.txt) \
 asm,3.3.1\
 antlr,2.7.7-redhat-1\
 datatable,1.9.4
 
-[BSD 4-Clause License](../lib/third-party-licenses/BSD%204-CLAUSE-LICENSE.txt)\
+[BSD 4-Clause License](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/BSD%204-CLAUSE-LICENSE.txt) \
 dom4j,1.6.1
 
-[Common Development and Distribution License (CDDL) 1.0](../lib/third-party-licenses/CDDL%201.0-LICENSE.txt)\
+[Common Development and Distribution License (CDDL) 1.0](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/CDDL%201.0-LICENSE.txt) \
 jboss-ejb-api_3.1_spec,1.0.2.Final-redhat-1\
 jboss-jstl-api_1.2_spec,1.0.3.Final-redhat-1\
 jboss-servlet-api_3.0_spec,1.0.1.Final-redhat-1\
 jboss-transaction-api_1.1_spec,1.0.1.Final-redhat-1\
 saaj,1.2
 
-[Common Public License 1.0](../lib/third-party-licenses/CPL%201.0-LICENSE.txt)\
+[Common Public License 1.0](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/CPL%201.0-LICENSE.txt) \
 wsdl4j,1.5.1
 
-[Creative Commons License 1.0](../lib/third-party-licenses/CC0%201.0-LICENSE.txt)
+[Creative Commons License 1.0](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/CC0%201.0-LICENSE.txt) \
 xpp3_min,1.1.4c
 
-[Eclipse Distribution License 1.0](../lib/third-party-licenses/EDL%201.0-LICENSE.txt)\
+[Eclipse Distribution License 1.0](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/EDL%201.0-LICENSE.txt) \
 javax.xml.stream,1.0.1.v201004272200
 
-[Eclipse Public License 1.0](../lib/third-party-licenses/EPL%201.0-LICENSE.txt)\
+[Eclipse Public License 1.0](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/EPL%201.0-LICENSE.txt) \
 com.ibm.icu,4.4.2.v20110823\
 com.lowagie.text,2.1.7\
 hibernate-jpa-2.0-api,1.0.1.Final-redhat-1\
@@ -156,19 +156,19 @@ org.w3c.dom.svg,1.1.0\
 Tidy,1.1\
 viewservlets,4.2.2
 
-[GNU General Public License 1.0](../lib/third-party-licenses/GPL%201.0.txt)\
+[GNU General Public License 1.0](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/GPL%201.0-LICENSE.txt) \
 jboss-jstl-api_1.2_spec,1.0.3.Final-redhat-1
 
-[GNU General Public License 2.0](../lib/third-party-licenses/GPL%202.0.txt)\
+[GNU General Public License 2.0](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/GPL%202.0-LICENSE.txt) \
 jboss-ejb-api_3.1_spec,1.0.2.Final-redhat-1\
 jboss-servlet-api_3.0_spec,1.0.1.Final-redhat-1\
 jboss-transaction-api_1.1_spec,1.0.1.Final-redhat-1\
 datatable,1.9.4
 
-[GNU General Public License 3.0](../lib/third-party-licenses/GPL%203.0-LICENSE.txt)\
+[GNU General Public License 3.0](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/GPL%203.0-LICENSE.txt) \
 bwizard
 
-[GNU Lesser General Public License 2.1](../lib/third-party-licenses/LGPL%202.1-LICENSE.txt)\
+[GNU Lesser General Public License 2.1](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/LGPL%202.1-LICENSE.txt) \
 javassist,3.16.1-GA\
 hibernate-core,4.1.3.Final-redhat-1\
 jboss-jsp-api_2.2_spec,1.0.1.Final-redhat-1\
@@ -176,13 +176,13 @@ hibernate-commons-annotations,4.0.1.Final-redhat-1\
 hibernate-entitymanager,4.1.3.Final-redhat-1\
 jboss-logging,3.1.1.GA-redhat-1
 
-[MIT License](../lib/third-party-licenses/MIT-LICENSE.txt)\
+[MIT License](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/MIT-LICENSE.txt) \
 jquery,1.8.1
 
-[Mozilla Public License 1.1](../lib/third-party-licenses/MPL%201.1-LICENSE.txt)\
+[Mozilla Public License 1.1](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/MPL%201.1-LICENSE.txt) \
 javassist,3.16.1-GA
 
-[PostgreSQL License](../lib/third-party-licenses/POSTGRESQL-LICENSE.txt)\
+[PostgreSQL License](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/POSTGRESQL-LICENSE.txt) \
 postgresql,9.4-1201.jdbc4
 
 Public Domain\
@@ -190,10 +190,10 @@ aopalliance,1.0.0\
 xmlpull,1.1.3.1\
 xpp3_min,1.1.4c
 
-[W3C License](../lib/third-party-licenses/W3C-LICENSE.txt)\
+[W3C License](https://github.com/unica-open/contabilia/blob/master/third-party-licenses/W3C-LICENSE.txt) \
 flute,1.3
 
-[CSI](../lib/third-party-licenses/CSI.txt)\
+[CSI](https://github.com/unica-open/contabilia/blob/master/Copyrights.txt) \
 csi-apachesoap,1.4.6\
 csi-core,1.4.6\
 csi-ejb,1.4.6\
