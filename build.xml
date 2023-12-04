@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
 SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
 SPDX-License-Identifier: EUPL-1.2
@@ -15,7 +16,7 @@ SPDX-License-Identifier: EUPL-1.2
 	<target name="resolve-dependencies" description="configurazione di ivy">
 		<tstamp />
 		<ivy:configure file="${buildfiles}/ivyconf.xml" />
-		<ivy:resolve file="${buildfiles}/ivy.xml" conf="runtime,provided,siacrepitf" transitive="false" />
+		<ivy:resolve file="${buildfiles}/ivy.xml" conf="runtime,provided" transitive="false" />
 	</target>
 
 	<target name="resolve-dependencies-itf" description="configurazione di ivy">
@@ -31,14 +32,13 @@ SPDX-License-Identifier: EUPL-1.2
 	<!-- -->
 	<target name="load-dependencies" description="carica le dipendenze tramite ivy" depends="resolve-dependencies">
 		<tstamp />
-		<ivy:retrieve pattern="${build.lib}/[conf]/[artifact].[ext]" conf="runtime,provided,dev,siacrepitf" />
+		<ivy:retrieve pattern="${build.lib}/[conf]/[artifact].[ext]" conf="runtime,provided,dev" />
 	</target>
 
 	<target name="load-dependencies-itf" description="carica le dipendenze tramite ivy" depends="resolve-dependencies-itf">
 		<tstamp />
 		<ivy:retrieve pattern="${build.lib}/[conf]/[artifact].[ext]" conf="runtime,provided" />
 		
-		<mkdir dir="${build.lib}/siacrepitf" />
 	</target>
 
 	<!-- -->
@@ -132,7 +132,6 @@ SPDX-License-Identifier: EUPL-1.2
 		<path id="class.path">
 			<fileset dir="${build.lib}/provided" />
 			<fileset dir="${build.lib}/runtime" />
-			<fileset dir="${build.lib}/siacrepitf" />
 		</path>
 
 	</target>
@@ -207,35 +206,6 @@ SPDX-License-Identifier: EUPL-1.2
 	</target>
 
 
-	<!-- -->
-	<!-- ############################################################# -->
-	<!-- # public target: package-siacrepitf-jar                     # -->
-	<!-- ############################################################# -->
-	<!-- -->
-	<target name="package-siacrepitf-jar" description="costruisce il siacrepitf.jar" depends="compile-all-itf">
-		<delete dir="${archives-target}/siacrepitf.jar" failonerror="false" />
-		<copy todir="${classes-itf}/spring" file="${buildfiles}/${target}.properties">
-		</copy>
-		<jar destfile="${archives-target}/siacrepitf-${siacrepitf-version}.jar" basedir="${classes-itf}" />
-
-			
-			<condition property="move.jar.to.local">
-				<equals arg1="${target}" arg2="local" />
-			</condition>
-			
-			<antcall target="move_jar_to_local" />
-			
-		</target>
-			
-		<target name="move_jar_to_local" if="move.jar.to.local">
-			<echo message="moving siacrepitf-${siacrepitf-version}.jar to ${ivy.local}/siacrepitf-LOCAL.jar"/>
-
-		  	<move 
-				file="${archives-target}/siacrepitf-${siacrepitf-version}.jar" 
-				tofile="${ivy.local}/siacrepitf-LOCAL.jar"
-				overwrite="yes" >
-			</move>
-	  </target>
 		
 		
 
@@ -394,8 +364,7 @@ SPDX-License-Identifier: EUPL-1.2
 			
 			<tarfileset dir="${conf-target}">
 				<include name="${file-datasource-name}" />
-			</tarfileset>
-		</tar>
+			</tarfileset>		</tar>
 	</target>
 
 
@@ -434,7 +403,6 @@ SPDX-License-Identifier: EUPL-1.2
 			compress="${flag-compress}" manifest="${web-manifest-dir}/MANIFEST.MF">
 			<classes dir="${classes}" />
 			<lib dir="${build.lib}/runtime" />
-			<lib dir="${build.lib}/siacrepitf" />
 		</war>
 	</target>
 
@@ -635,7 +603,7 @@ SPDX-License-Identifier: EUPL-1.2
 
 
 	<target name="deploy-local" description="deploy del pacchetto locale" depends="package-ear">
-		<move overwrite="true" file="target/build/archives/local/siacrepapp.ear" todir="D:\Programmi\jboss-eap-6.0\standalone\deployments" verbose="true" />
+		<move overwrite="true" file="target/build/archives/local/siacrepapp.ear" todir="${jboss_dir}" verbose="true" />
 
 	</target>
 

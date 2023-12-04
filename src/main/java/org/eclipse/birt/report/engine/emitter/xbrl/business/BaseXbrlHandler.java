@@ -22,7 +22,7 @@ import org.eclipse.birt.report.engine.emitter.xbrl.util.FreemarkerHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-import it.csi.siac.siaccommon.util.log.LogUtil;
+import it.csi.siac.siaccommonapp.util.log.LogWebUtil;
 
 public abstract class BaseXbrlHandler<F extends Fact> implements XbrlHandler {
 	protected Map<String, Object> parametersMap;
@@ -31,7 +31,7 @@ public abstract class BaseXbrlHandler<F extends Fact> implements XbrlHandler {
 	
 	protected XbrlTypeHandler<F> xbrlTypeHandler;
 	
-	protected transient LogUtil log = new LogUtil(this.getClass());
+	protected transient LogWebUtil log = new LogWebUtil(this.getClass());
 
 	@Autowired
 	protected ApplicationContext appCtx;

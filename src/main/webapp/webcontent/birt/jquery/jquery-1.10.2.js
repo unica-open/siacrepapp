@@ -1,3 +1,7 @@
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
 /*!
  * jQuery JavaScript Library v1.10.2
  * http://jquery.com/

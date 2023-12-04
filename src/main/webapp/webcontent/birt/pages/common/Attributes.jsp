@@ -1,3 +1,7 @@
+<%--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+--%>
 <%@ page import="org.eclipse.birt.report.utility.ParameterAccessor,
 				 org.eclipse.birt.report.IBirtConstants,
 				 org.eclipse.birt.report.session.*" %>

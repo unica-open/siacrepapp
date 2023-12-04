@@ -89,7 +89,7 @@ SPDX-License-Identifier: EUPL-1.2
 
 	
 	<tr data-index="<s:property value="#st.index" />">
-		<td class="ord-sel"> <s:checkbox name="selectedXbrl" fieldValue="%{#st.index}" />  </td>
+		<td class="ord-sel"> <s:checkbox name="selectedXbrl" fieldValue="%{#st.index}"  disabled="contenuto == null"  />  </td>
 		<td class="file-codice"><s:property value="codice" /></td>
 		<td><s:property value="note" /></td>
 		<td class="file-dataUpload"><s:date name="dataCreazione" format="dd/MM/yyyy H:mm" /></td>
@@ -138,7 +138,7 @@ SPDX-License-Identifier: EUPL-1.2
 	  <div class="modal-footer">
 		<button class="btn" data-dismiss="modal" aria-hidden="true">no, indietro</button>
 		<button class="btn btn-primary conferma-azione" data-dismiss="modal" aria-hidden="true">si, prosegui</button>
-		<a class="anchor-azione" href="<s:url method="elimina" action="gestioneXbrlFile"/>"><span class="hide"></span></a>
+		<a class="anchor-azione" href="<s:url action="gestioneXbrlFile_elimina"/>"><span class="hide"></span></a>
 	  </div>
 	</div>  
 <!--/modale annulla  -->
@@ -150,7 +150,7 @@ SPDX-License-Identifier: EUPL-1.2
 		<p class="margin-medium"><a class="btn btn-secondary" href="home.do">indietro</a>  
 		
 					  	<s:if test="not elencoFileXbrl.empty">	        
-				  <s:submit cssClass="btn btn-primary pull-right" method="unisci" id="unisci"  value="unisci" />
+				  <s:submit cssClass="btn btn-primary pull-right" action="gestioneXbrlFile_unisci" id="unisci"  value="unisci" />
 				</s:if>
 		 
           </p>     

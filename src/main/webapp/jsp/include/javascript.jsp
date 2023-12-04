@@ -6,7 +6,7 @@ SPDX-License-Identifier: EUPL-1.2
 <%@taglib uri="http://www.csi.it/taglibs/remincl-1.0" prefix="r"%>
 
 
-<script type="text/javascript" src="${jspathexternal}jquery.js"></script>
+<script type="text/javascript" src="${jspathexternal}jquery-1.10.2.min.js"></script>
 
 
 <%-- Caricamento del framework Bootstrap per JavaScript --%>

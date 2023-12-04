@@ -1,3 +1,7 @@
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
 // Copyright 1994-2008, Actuate Software Corp., All rights reserved.
 
 BrowserUtility = Class.create();

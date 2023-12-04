@@ -18,15 +18,15 @@ SPDX-License-Identifier: EUPL-1.2
 		</action>
 
 		<action name="gestioneXbrlFile" class="gestioneXbrlFileAction">
-			<result name="success">/jsp/gestioneXbrlFile.jsp
-			</result>
-			<result name="input">/jsp/gestioneXbrlFile.jsp
-			</result>
-			<result name="gestioneXbrlFile" type="redirectAction">
-				<param name="actionName">gestioneXbrlFile</param>
-				<param name="namespace">/</param>
-				<param name="method">execute</param>
-			</result>
+			<result name="success">/jsp/gestioneXbrlFile.jsp</result>
+			<result name="input">/jsp/gestioneXbrlFile.jsp</result>
+		</action>
+
+		<action name="gestioneXbrlFile_elimina" class="gestioneXbrlFileAction" method="elimina">
+			<result name="success" type="redirectAction">gestioneXbrlFile</result>
+		</action>
+
+		<action name="gestioneXbrlFile_unisci" class="gestioneXbrlFileAction" method="unisci">
 			<result name="downloadFile" type="chain">
 				<param name="actionName">downloadFile</param>
 				<param name="namespace">/</param>
@@ -34,12 +34,24 @@ SPDX-License-Identifier: EUPL-1.2
 			</result>
 		</action>
 
+		<action name="downloadTracciato400CadFile" class="downloadTracciato400CadFileAction">
+			<result name="downloadFile" type="chain">
+				<param name="actionName">downloadFile</param>
+				<param name="namespace">/</param>
+				<param name="method">execute</param>
+			</result>
+			<result name="input">/jsp/failure.jsp</result>
+			
+		</action>
+
+
 		<action name="downloadFile" class="downloadFileAction">
 			<result name="success" type="stream">
 				<param name="contentType">${contentType}</param>
 				<param name="contentDisposition">attachment;filename="${filename}"</param>
 			</result>
 		</action>
+
 
 
 		

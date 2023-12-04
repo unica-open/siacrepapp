@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-import it.csi.siac.siaccommonapp.action.DownloadFileAction;
 import it.csi.siac.siaccommonapp.action.GenericAction;
 import it.csi.siac.siaccorser.frontend.webservice.FileService;
 import it.csi.siac.siaccorser.frontend.webservice.msg.file.EliminaFile;
@@ -22,6 +21,7 @@ import it.csi.siac.siaccorser.frontend.webservice.msg.file.RicercaTipoFile;
 import it.csi.siac.siaccorser.frontend.webservice.msg.file.RicercaTipoFileResponse;
 import it.csi.siac.siaccorser.model.errore.ErroreCore;
 import it.csi.siac.siaccorser.model.file.File;
+import it.csi.siac.siaccorser.model.file.TipoFileEnum;
 import it.csi.siac.siacrepapp.frontend.birt.xbrl.util.XbrlFileMergingHandler;
 import it.csi.siac.siacrepapp.frontend.ui.model.GestioneXbrlFileModel;
 
@@ -56,7 +56,7 @@ public class GestioneXbrlFileAction extends GenericAction<GestioneXbrlFileModel>
 
 		ricercaTipoFile.setEnte(sessionHandler.getEnte());
 		ricercaTipoFile.setRichiedente(sessionHandler.getRichiedente());
-		ricercaTipoFile.setCodice("REPORT_XBRL");
+		ricercaTipoFile.setCodice(TipoFileEnum.REPORT_XBRL.getCodice());
 
 		RicercaTipoFileResponse ricercaTipoFileResponse = fileService.ricercaTipoFile(ricercaTipoFile);
 
@@ -111,7 +111,7 @@ public class GestioneXbrlFileAction extends GenericAction<GestioneXbrlFileModel>
 			return INPUT;
 		}
 
-		return "gestioneXbrlFile";
+		return SUCCESS;
 	}
 
 	private void mergeFileXbrl() throws Exception {
@@ -123,20 +123,11 @@ public class GestioneXbrlFileAction extends GenericAction<GestioneXbrlFileModel>
 		
 		String merged = xbrlFileMergingHandler.merge(xbrlList);
 
-		File xbrlFile0 = model.getElencoFileXbrl().get(0);
+		File xbrlFile0 = xbrlList.get(0);
 
-		download(xbrlFile0.getNome(), xbrlFile0.getMimeType(), merged.getBytes("utf-8"));
+		initFileDownload(xbrlFile0.getNome(), xbrlFile0.getMimeType(), merged.getBytes("utf-8"));
 	}
 
-	public void download(String nome, String mimeType, byte[] data) throws Exception {
-		File file = new File();
-
-		file.setNome(nome);
-		file.setMimeType(mimeType);
-		file.setContenuto(data);
-
-		request.put(DownloadFileAction.FILE, file);
-	}
 
 	public Integer getFi() {
 		return fi;

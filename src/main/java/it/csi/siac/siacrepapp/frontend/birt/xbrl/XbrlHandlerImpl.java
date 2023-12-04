@@ -79,6 +79,7 @@ public class XbrlHandlerImpl<F extends Fact> extends BaseXbrlHandler<F> {
 		Map<String, Object> siacTXbrlReport = readSiacTXbrlReport();
 		
 		xbrl.setTaxonomyRef((String) siacTXbrlReport.get("xbrl_rep_xsd_tassonomia"));
+		xbrl.setHeaderParts((String) siacTXbrlReport.get("xbrl_rep_xsd_header"));
 
 		initXbrlTypeHandler(siacTXbrlReport);
 
@@ -210,6 +211,7 @@ public class XbrlHandlerImpl<F extends Fact> extends BaseXbrlHandler<F> {
 	protected Map<String, Object> buildXbrlRenderDataMap() {
 		Map<String, Object> xbrlDataMap = new HashMap<String, Object>();
 
+		xbrlDataMap.put("headerParts", xbrl.getHeaderParts());
 		xbrlDataMap.put("taxonomyRef", xbrl.getTaxonomyRef());
 		xbrlDataMap.put("contextList", xbrl.getContextList());
 		xbrlDataMap.put("unitList", xbrl.getUnitList());

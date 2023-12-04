@@ -1,3 +1,7 @@
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
 /*  Prototype JavaScript framework, version 1.4.0
  *  (c) 2005 Sam Stephenson <sam@conio.net>
  *

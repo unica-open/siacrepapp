@@ -29,6 +29,7 @@ import it.csi.siac.siaccorser.model.ServiceResponse;
 import it.csi.siac.siaccorser.model.file.File;
 import it.csi.siac.siaccorser.model.file.StatoFile.CodiceStatoFile;
 import it.csi.siac.siaccorser.model.file.TipoFile;
+import it.csi.siac.siaccorser.model.file.TipoFileEnum;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
@@ -55,7 +56,7 @@ public class XbrlFileHelper {
 		file.setCodice(code);    
 		file.setNome(filename);
 		file.setNote(parametersToString(parametersMap));
-		file.setTipo(ricercaTipoFile("REPORT_XBRL", ente, richiedente));
+		file.setTipo(ricercaTipoFile(TipoFileEnum.REPORT_XBRL.getCodice(), ente, richiedente));
 		file.setMimeType(XbrlEmitter.MIME_TYPE);
 		file.setContenuto(byteArray);
 		file.setStatoFile(CodiceStatoFile.CARICATO);

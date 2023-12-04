@@ -7,31 +7,22 @@
 *.ear
 
 # Target folder
-target/
-dist/
-logs/
+/target/
+/logs/
+/output-bin/
+/dist/
 
 # Eclipse files
-.classpath
-.metadata
-.project
-.springBeans
+/.classpath
+/.metadata
+/.project
+/.springBeans
 *.launch
 
 # Eclipse folders
-.externalToolBuilders/
-.recommenders/
-.settings/
-.sonar/
-
-# Own properties file
-/buildfiles/own.properties
-/bin/
-/build/
+/.externalToolBuilders/
+/.recommenders/
+/.settings/
+/.sonar/
 /testbin/
-/buildfiles/local.properties
-
-# Mail utilities
-src/test/java/it/csi/siac/mail/include/*
-!src/test/java/it/csi/siac/mail/include/DND
-/own.properties
+/bin/

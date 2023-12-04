@@ -28,4 +28,7 @@ $(document).ready(function()
 	});
 	
 	
+	$('[name="selectedXbrl"]').prop('checked', false);
+	$('[name="__checkbox_selectedXbrl"]').remove();
+	
 });

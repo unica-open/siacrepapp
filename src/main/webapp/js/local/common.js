@@ -40,7 +40,7 @@ function trimAll(sString) {
  * @param arrayDaIgnorare (Array) l'array di tabelle da ignorare
  */
 function cleanDataTables(arrayDaIgnorare) {
-    $.each($.fn.dataTable.fnTables(true), function(key, value) {
+    $.each(jQuery.fn.dataTable.fnTables(true), function(key, value) {
         // Controllo se l'elemento non sia nell'array di elementi da ignorare
         if($.inArray(value.id, arrayDaIgnorare) === -1) {
             $(value).dataTable().fnClearTable();
@@ -169,6 +169,15 @@ function replaceAll(find, replace, str) {
     return str.replace(new RegExp(find, 'g'), replace);
 }
 
+
+function getQueryStringParam(name) {
+	name = name.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+    var match = location.search.match(new RegExp("[?&]" + name + "=*([^&]*)(&|$)"));
+    return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+}
+
+
+
 /**
  * Crea una funzione per l'invio via POST della chiamata AJAX per recuperare il JSON.
  * <br>
@@ -184,7 +193,7 @@ function replaceAll(find, replace, str) {
  * 
  * @returns (Deferred) l'oggetto jQuery associato alla chiamata AJAX
  */
-$.fn.postJSON = function(url, data, success, /* Optional */ async) {
+jQuery.fn.postJSON = function(url, data, success, /* Optional */ async) {
 	var result,
 		asTemp = async,
 		successFunction = success,
@@ -228,7 +237,7 @@ $.fn.postJSON = function(url, data, success, /* Optional */ async) {
  * 
  * @returns (Object) the serialized object
  */
-$.fn.serializeObject = function() {
+jQuery.fn.serializeObject = function() {
     var o = {};
     var a = this.serializeArray();
     $.each(a, function() {
@@ -250,7 +259,7 @@ $.fn.serializeObject = function() {
  * @param eventName (String)   the name of the event
  * @param handler   (Function) the function handler
  */
-$.fn.substituteHandler = function(eventName, handler) {
+jQuery.fn.substituteHandler = function(eventName, handler) {
 	return this.off(eventName).on(eventName, handler);
 };
 
@@ -259,7 +268,7 @@ $.fn.substituteHandler = function(eventName, handler) {
  * 
  * @param eventName (String) the name of the event
  */
-$.fn.eventPreventDefault = function(eventName) {
+jQuery.fn.eventPreventDefault = function(eventName) {
 	return this.substituteHandler(eventName, function(e) {
 		e.preventDefault();
 	});
@@ -374,7 +383,7 @@ function formattazioneNumerica() {
  * 
  * @param ignoreFirst (Boolean) ignorare il primo blur
  */
-$.fn.gestioneDeiDecimali = function(ignoreFirst) {
+jQuery.fn.gestioneDeiDecimali = function(ignoreFirst) {
 	return this.on("blur", function() {
 		var self = $(this);
 		// Per gestire il rientro a seguito di una formattazione numerica non corretta

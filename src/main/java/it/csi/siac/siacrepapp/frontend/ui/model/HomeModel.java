@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import it.csi.siac.siaccommon.util.CoreUtil;
 import it.csi.siac.siaccommonapp.model.GenericModel;
 
 public class HomeModel extends GenericModel {
@@ -61,9 +62,6 @@ public class HomeModel extends GenericModel {
 	public void addParamToQueryString(String param, String value) throws UnsupportedEncodingException {
 		queryStringParams.add(String.format("%s=%s", param, URLEncoder.encode(StringUtils.defaultString(value), "UTF-8")));
 	}
-
-	
-	////////////////
 	
 	public static class Report {
 		private String name;
@@ -71,6 +69,7 @@ public class HomeModel extends GenericModel {
 		private boolean allowPdf = true;
 		private boolean allowXls = true;
 		private boolean allowXbrl = false;
+		private boolean allowCad = false;
 
 		public Report(String fileName) {
 			this.fileName = fileName;
@@ -80,14 +79,22 @@ public class HomeModel extends GenericModel {
 			try {
 				String[] tmp = StringUtils.substringAfter(fileLine, "=").split(separator);
 
-				name = tmp[0];
-				allowPdf = Boolean.valueOf(tmp[1]);
-				allowXls = Boolean.valueOf(tmp[2]);
-				setAllowXbrl(Boolean.valueOf(tmp[3]));
+				name = getString(tmp, 0);
+				allowPdf = getBoolean(tmp, 1, true);
+				allowXls = getBoolean(tmp, 2, true);
+				allowXbrl = getBoolean(tmp, 3, false);
+				allowCad = getBoolean(tmp, 4, false);
 			}
-			catch (Exception e) {
-				// Ignoro l'eccezione
-			}
+			catch (Exception e) {}
+
+		}
+
+		public boolean isAllowCad() {
+			return allowCad;
+		}
+
+		public void setAllowCad(boolean allowCad) {
+			this.allowCad = allowCad;
 		}
 
 		public String getName() {
@@ -129,5 +136,16 @@ public class HomeModel extends GenericModel {
 		public void setAllowXbrl(boolean allowXbrl) {
 			this.allowXbrl = allowXbrl;
 		}
+				
+		private String getString(String[] tmp, int i) {
+			return CoreUtil.arrayGet(tmp, i);
+		}
+
+		private Boolean getBoolean(String[] tmp, int i, boolean defaultValue) {
+			String s = getString(tmp, i);
+			return s == null ? Boolean.valueOf(defaultValue) : Boolean.valueOf(s);
+		}
+
+
 	}
 }

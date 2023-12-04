@@ -1,8 +1,11 @@
+<#--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
 <?xml version="1.0" encoding="utf-8"?>
 
-<xbrli:xbrl  
-	xmlns:sre="http://www.rgs.mef.gov.it/xbrl/bdap/sdb/rend/enti/2019-01-07" 
-	xmlns:sr="http://www.rgs.mef.gov.it/xbrl/bdap/sdb/rend/2019-01-07" 
+<xbrli:xbrl
+${headerParts}
 	xmlns:link="http://www.xbrl.org/2003/linkbase"
 	xmlns:num="http://www.xbrl.org/dtr/type/numeric"
 	xmlns:iso4217="http://www.xbrl.org/2003/iso4217"

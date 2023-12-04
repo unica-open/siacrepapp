@@ -16,8 +16,10 @@ import org.eclipse.birt.report.engine.ir.DataItemDesign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import it.csi.siac.siaccommon.util.MimeType;
+
 public class XbrlEmitter extends ContentEmitterAdapter {
-	public static final String MIME_TYPE = "application/xml";
+	public static final String MIME_TYPE = MimeType.XML.getMimeType();
 
 	private OutputStream outputStream;
 

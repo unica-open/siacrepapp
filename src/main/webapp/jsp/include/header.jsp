@@ -6,10 +6,11 @@ SPDX-License-Identifier: EUPL-1.2
 <%@ taglib uri="http://www.csi.it/taglibs/remincl-1.0" prefix="r" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>    
 
+<!-- SIAC-8699 name -- var -->
+<s:set var="urlCruscotto" value="%{'/siacrepapp/redirectToCruscotto.do'}" /> 
 
-<s:set name="urlCruscotto" 
-	value="%{'/siacrepapp/redirectToCruscotto.do'}" /> 
-
+ 
+ 
 <%-- Gestione della navigazione --%>
 <p class="nascosto">
 	<a name="A-sommario" title="A-sommario"></a>

@@ -1,3 +1,7 @@
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
 /******************************************************************************
  *	Copyright (c) 2004-2008 Actuate Corporation and others.
  *	All rights reserved. This program and the accompanying materials 

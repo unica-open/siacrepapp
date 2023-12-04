@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class Xbrl<F extends Fact> {
 	private String taxonomyRef;
+	private String headerParts;
 	private Map<String, Context> contextMap = new HashMap<String, Context>();
 	private List<Unit> unitList = new ArrayList<Unit>();
 	private Map<String, F> factMap = new LinkedHashMap<String, F>();
@@ -55,5 +56,13 @@ public class Xbrl<F extends Fact> {
 
 	public F getFact(String factName) {
 		return factMap.get(factName);
+	}
+
+	public String getHeaderParts() {
+		return headerParts;
+	}
+
+	public void setHeaderParts(String headerParts) {
+		this.headerParts = headerParts;
 	}
 }

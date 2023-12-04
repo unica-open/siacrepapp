@@ -4,6 +4,16 @@ SIAC REPAPP
 
 Funzionalita' rilasciate
 --------------------------
+build 30/04/2020 versione 4.13.0
+ Open source
+
+build xx/xx/2020 versione 4.12.0
+
+build xx/xx/2020 versione 4.11.0
+
+build 28/01/2020 versione 4.10.0
+ SIAC-7252
+
 build 27/11/2019 versione 4.9.0
  incremento versione per allineamento di tutte le dipendenze su SIAC-6881
 

@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import it.csi.siac.siaccommon.util.MimeType;
 import it.csi.siac.siaccommonser.business.service.base.BaseServiceOneWay;
 import it.csi.siac.siaccommonser.business.service.base.ServiceResponseUtil;
 import it.csi.siac.siaccommonser.business.service.base.exception.ServiceParamError;
@@ -20,6 +21,7 @@ import it.csi.siac.siaccorser.frontend.webservice.msg.report.GeneraReport;
 import it.csi.siac.siaccorser.model.errore.ErroreCore;
 import it.csi.siac.siaccorser.model.file.File;
 import it.csi.siac.siaccorser.model.file.StatoFile.CodiceStatoFile;
+import it.csi.siac.siaccorser.model.file.TipoFileEnum;
 
 @Service
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
@@ -72,8 +74,8 @@ public class GeneraReportAsyncService extends BaseServiceOneWay<GeneraReport> {
 		// FIXME
 		file.setCodice("BOH???");
 		file.setNome("BOH???");
-		file.setTipo(generaReportUtil.ricercaTipoFile("REPORT_PDF"));
-		file.setMimeType("application/pdf");
+		file.setTipo(generaReportUtil.ricercaTipoFile(TipoFileEnum.REPORT_PDF.getCodice()));
+		file.setMimeType(MimeType.PDF);
 		file.setContenuto(content);
 		file.setStatoFile(CodiceStatoFile.CARICATO); // TODO
 

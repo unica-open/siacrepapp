@@ -1,3 +1,7 @@
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
 /******************************************************************************
  *	Copyright (c) 2004 Actuate Corporation and others.
  *	All rights reserved. This program and the accompanying materials 
@@ -840,7 +844,25 @@ BirtParameterDialog.prototype = Object.extend( new AbstractParameterDialog( ),
 			}			
 		}
 		
+		
+		this.__parameterMap = new Array();
+		
+		for (var i = 0; i < this.__parameter.length; i++) {
+			this.__parameterMap[this.__parameter[i].name] = this.__parameter[i].value;
+		}
+
+		
 		return true;
+	},
+
+	getParameter : function(name)
+	{
+		return this.__parameterMap[name];
+	},
+
+	getParameters : function()
+	{
+		return this.__parameter;
 	},
 
 	/**

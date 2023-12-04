@@ -1,3 +1,7 @@
+<%--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+--%>
 <%-----------------------------------------------------------------------------
 	Copyright (c) 2004-2008 Actuate Corporation and others.
 	All rights reserved. This program and the accompanying materials 
@@ -182,6 +186,9 @@
 <script type="text/javascript" src="${jspathexternal}bootstrap-select.js"></script>
 <script type="text/javascript" src="${jspathexternal}bootstrap-datepicker.js"></script>
 
+
+
+<script type="text/javascript" src="${jspath}common.js"></script>
 
 
 
@@ -438,13 +445,23 @@
 				var action = document.location.href.replace('/frameset\?', '/output?').replace('outputFormat', '__format');
 				
 			
-				if (jQuery('#outputFormat').text() == 'xls')						
+				if (jQuery('#outputFormat').text() == 'xls') {					
 					action = action + '&__emitterid=org.eclipse.birt.report.engine.emitter.prototype.excel&__export_single_page=true';
 					// action = action + '&__emitterid=org.uguess.birt.report.engine.emitter.xls&__export_single_page=true';
 					//action = action + '&__emitterid=uk.co.spudsoft.birt.emitters.excel.XlsxEmitter';
 					//action = action + '&__emitterid=it.csi.siac.siacrepapp.frontend.ui.servlet.birt.emitter.xls';
-					
+				}
 				
+				
+				//alert('cad=...' + getQueryStringParam('t400cad') + '...');
+				
+				if (getQueryStringParam('t400cad') != null) {
+					action = document.location.href.replace('/frameset', '/downloadTracciato400CadFile.do').replace('&account=', '&X_account_X=');
+				}
+				
+				//alert(birtParameterDialog.getParameter('ente_proprietario'));
+				//alert(JSON.stringify(birtParameterDialog.getParameters()));
+				//alert('action = ' + action);
 				
 				birtParameterDialog.__doSubmit(action, null);
 				

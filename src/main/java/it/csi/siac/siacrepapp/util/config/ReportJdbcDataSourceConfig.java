@@ -6,10 +6,10 @@ package it.csi.siac.siacrepapp.util.config;
 
 import java.util.Properties;
 
-import it.csi.siac.siaccommon.util.log.LogUtil;
+import it.csi.siac.siaccommonapp.util.log.LogWebUtil;
 
 public class ReportJdbcDataSourceConfig {
-	private static LogUtil log = new LogUtil(ReportJdbcDataSourceConfig.class);
+	private static LogWebUtil log = new LogWebUtil(ReportJdbcDataSourceConfig.class);
 
 	private static volatile Properties config = null;
 

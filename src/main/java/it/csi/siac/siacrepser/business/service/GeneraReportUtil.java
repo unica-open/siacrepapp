@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import com.lowagie.text.DocumentException;
 
+import it.csi.siac.siaccommon.util.MimeType;
 import it.csi.siac.siaccommonser.business.service.base.ServiceResponseUtil;
 import it.csi.siac.siaccorser.frontend.webservice.FileService;
 import it.csi.siac.siaccorser.frontend.webservice.msg.file.UploadFile;
@@ -25,6 +26,7 @@ import it.csi.siac.siaccorser.frontend.webservice.msg.report.GeneraReport;
 import it.csi.siac.siaccorser.model.file.File;
 import it.csi.siac.siaccorser.model.file.StatoFile.CodiceStatoFile;
 import it.csi.siac.siaccorser.model.file.TipoFile;
+import it.csi.siac.siaccorser.model.file.TipoFileEnum;
 import it.csi.siac.siacrepser.integration.dad.ReportDad;
 import it.csi.siac.siacrepser.integration.entity.SiacTReportTemplate;
 
@@ -50,8 +52,8 @@ public class GeneraReportUtil {
 		// FIXME
 		file.setCodice(String.format("XML-%s", req.getCodiceTemplate()));
 		file.setNome(String.format("%s.xml", req.getCodiceTemplate()));
-		file.setTipo(ricercaTipoFile("REPORT_XML"));
-		file.setMimeType("text/xml");
+		file.setTipo(ricercaTipoFile(TipoFileEnum.REPORT_XML.getCodice()));
+		file.setMimeType(MimeType.XML);
 		file.setContenuto(req.getObjectXml().getBytes());
 		file.setStatoFile(CodiceStatoFile.CARICATO);
 

@@ -14,6 +14,8 @@ import org.eclipse.birt.report.utility.filename.IFilenameGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import it.csi.siac.siaccorser.frontend.webservice.exception.SystemException;
+import it.csi.siac.siaccorser.model.errore.ErroreCore;
 import it.csi.siac.siacrepapp.frontend.ui.model.HomeModel.ImplicitParams;
 import it.csi.siac.siacrepser.business.service.XbrlService;
 
@@ -40,6 +42,10 @@ public class XbrlFilenameGenerator implements IFilenameGenerator {
 		String reportCode = StringUtils.substringBefore((String) options.get(OPTIONS_REPORT_DESIGN), "_");
 
 		Map<String, Object> siacTXbrlReport = xbrlService.readSiacTXbrlReport(idEnte, reportCode);
+		
+		if (siacTXbrlReport == null) {
+			throw new SystemException(ErroreCore.ENTITA_NON_TROVATA.getErrore("XBRL REPORT", reportCode));
+		}
 
 		String filename = String.format("%s%s%s%s.%s", annoBilancio, codiceBdap,
 				siacTXbrlReport.get("xbrl_rep_fase_code"), siacTXbrlReport.get("xbrl_rep_tipologia_code"), extension);

@@ -19,7 +19,7 @@ SPDX-License-Identifier: EUPL-1.2
 	
 
 	
-	<bean id="coreService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+	<bean id="coreService" class="it.csi.siac.siaccommonapp.util.proxy.SiacJaxWsPortAdvisedProxyFactoryBean">
 		<property name="serviceInterface" value="it.csi.siac.siaccorser.frontend.webservice.CoreService" />
 
  		<property name="wsdlDocumentUrl" value="${endpoint.url.service.core}/CoreService?wsdl" />
@@ -30,7 +30,7 @@ SPDX-License-Identifier: EUPL-1.2
 	</bean>
 	
 	
-	<bean id="fileService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+	<bean id="fileService" class="it.csi.siac.siaccommonser.util.proxy.SiacJaxWsPortProxyFactoryBean">
 		<property name="serviceInterface" value="it.csi.siac.siaccorser.frontend.webservice.FileService" />
 		<property name="wsdlDocumentUrl" value="${endpoint.url.service.core}/FileService?wsdl" />
 		<property name="namespaceUri" value="http://siac.csi.it/cor/svc/1.0" />
@@ -41,7 +41,7 @@ SPDX-License-Identifier: EUPL-1.2
 		
 	
 	
-	<bean id="operazioneAsincronaService" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+	<bean id="operazioneAsincronaService" class="it.csi.siac.siaccommonapp.util.proxy.SiacJaxWsPortAdvisedProxyFactoryBean">
 		<property name="serviceInterface" value="it.csi.siac.siaccorser.frontend.webservice.OperazioneAsincronaService" />
 
  		<property name="wsdlDocumentUrl" value="${endpoint.url.service.core}/OperazioneAsincronaService?wsdl" />

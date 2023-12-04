@@ -6,8 +6,8 @@ package it.csi.siac.siacrepapp.frontend.ui.action;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -59,10 +59,14 @@ public abstract class BaseHomeAction<HM extends HomeModel> extends GenericAction
 		if (reportPath.isDirectory()) {
 			File indexFile = new File(reportPath.getPath() + "/index.properties");
 
-			Map<String, Boolean> fileList = new HashMap<String, Boolean>();
+			Set<String> fileList = new HashSet<String>();
 
 			if (indexFile.exists()) {
-				for (String fileLine : FileUtils.readLines(indexFile, "ISO-8859-1")) {
+				for (String fileLine : FileUtils.readLines(indexFile, "UTF-8")) {
+					if(fileLine.startsWith("#")) {
+						// Ignora commenti
+						continue;
+					}
 					HomeModel.Report report = new HomeModel.Report(fileLine, "::");
 
 					String title = report.getName();
@@ -76,7 +80,7 @@ public abstract class BaseHomeAction<HM extends HomeModel> extends GenericAction
 						
 						model.getElencoReport().add(report);
 
-						fileList.put(fileBaseName, true);
+						fileList.add(fileBaseName);
 					}
 				}
 			}
@@ -86,7 +90,7 @@ public abstract class BaseHomeAction<HM extends HomeModel> extends GenericAction
 				if (f.isFile()) {
 					String fileBaseName = StringUtils.substringBeforeLast(f.getName(), ".");
 
-					if (!fileList.containsKey(fileBaseName)) {
+					if (!fileList.contains(fileBaseName)) {
 						HomeModel.Report report = new HomeModel.Report(f.getName());
 
 						report.setName(fileBaseName);
